@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>625</width>
+    <height>325</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Morse Code Translator</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(62, 62, 62);</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QPushButton" name="play_Button">
+    <property name="geometry">
+     <rect>
+      <x>410</x>
+      <y>40</y>
+      <width>191</width>
+      <height>91</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(245, 245, 245);
+font: 75 12pt &quot;Segoe Script&quot;;</string>
+    </property>
+    <property name="text">
+     <string>Воспроизвести</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>220</y>
+      <width>591</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(245, 245, 245);
+selection-background-color: rgb(150, 150, 150);
+border-color: rgb(80, 80, 80);
+selection-color: rgb(230, 230, 230);
+font: 75 16pt &quot;Segoe Script&quot;;</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>40</y>
+      <width>321</width>
+      <height>111</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(245, 245, 245);
+font: 75 18pt &quot;Segoe Script&quot;;</string>
+    </property>
+    <property name="text">
+     <string>Переводчик кода
+Морзе</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="save_Button">
+    <property name="geometry">
+     <rect>
+      <x>410</x>
+      <y>160</y>
+      <width>191</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(245, 245, 245);
+font: 75 10pt &quot;Segoe Script&quot;;</string>
+    </property>
+    <property name="text">
+     <string>Сохранить в .txt</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
