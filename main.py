@@ -20,7 +20,6 @@ def translation(text: str):
         '3': '...--', '4': '....-', '5': '.....', '6': '-....', '7': '--...', '8': '---..', '9': '----.', 'Ё': '.'
     }
 
-
     out_text = ''
     for symb in text:
         if symb == ' ':
@@ -36,7 +35,6 @@ def translation(text: str):
     return out_text
 
 
-
 #  Передача сигнала
 def dlin():
     '''возвращает длинный сигнал на плату Arduino'''
@@ -46,6 +44,7 @@ def dlin():
     led_pin.write(0)
     led_pin_2.write(0)
 
+
 def corot():
     '''возвращает короткий сигнал на плату Arduino'''
     led_pin.write(1)
@@ -53,6 +52,7 @@ def corot():
     time.sleep(0.03)
     led_pin.write(0)
     led_pin_2.write(0)
+
 
 def rashif(arg: str):
     '''взависимости от символа выбирает какой сигнал подать на плату Arduino'''
@@ -82,6 +82,12 @@ def save_text(text: str):
         file.write(text)
     return "Код Морзе сохранён"
 
+def port_search():
+    f_name = f'data/input.txt'
+    with open(f_name, "r", encoding="utf8") as file:
+        text = file.readlines()
+    return text
+
 
 class MorseCoder(QMainWindow):
     def __init__(self):
@@ -99,25 +105,23 @@ class MorseCoder(QMainWindow):
         rashif(M_code)
         return True
 
-
     def save(self):
         M_code = translation(self.lineEdit.text())
         save_text(M_code)
         return True
 
 
-
 if __name__ == '__main__':
 
     # инициализация порта
     try:
-        port = 'COM16'
+        port_data = port_search()
+        port = port_data[0].strip()
         board = Arduino(port)
-        led_pin = board.get_pin('d:9:o')
-        led_pin_2 = board.get_pin('d:8:o')
+        led_pin = board.get_pin(port_data[1].strip())
+        led_pin_2 = board.get_pin(port_data[2].strip())
     except Exception:
         print('Извините, порт не найден(((')
-
 
     app = QApplication(sys.argv)
     ex = MorseCoder()
